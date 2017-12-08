@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>%Title% - FilmInfo</title>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon"> 
+
+<link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.min.css" />
+<script src="jquery/jquery-2.2.0.min.js"></script>
+<script src="jquery/jquery.mobile-1.4.5.js"></script>
+
+
+<script type="text/javascript">
+   // Umgebungsvariablen
+   var _MovieId = %MovieId%;
+   var _Watched = %Watched%;
+   var _WatchedDate = "%WatchedDate%";
+   var _Archived = %Archived%;
+   var _Favourite = %Favourite%;
+   var _TagList = "%TagList%";
+   var _TagListComplete = "%TagListComplete%";
+</script>
+
+<script src="script.js"></script>
+
+
+<style type="text/css">
+/* Rahmenfarbe um die MoviePoster-Images je nach Filmauflösung */
+.imageicon_SD {max-width:95%; border:3px outset #FFFFFF !important;}
+.imageicon_720 {max-width:95%; border:3px outset #04B404 !important;}
+.imageicon_1080 {max-width:95%; border:3px outset #2E64FE !important;}
+.imageicon_3D {max-width:95%; border:3px outset #DF013A !important;}
+
+.tag {
+    border: 1px solid #A5D24A;
+    display: inline-block;
+    padding: 5px;
+    text-decoration: none;
+    background: none repeat scroll 0% 0% #CDE69C;
+    color: #638421;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-family: helvetica;
+    //position: relative;
+    height: 100%;
+}
+ </style>
+
+</head>
+
+
+<body>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Informationen -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div data-role="page" id="info">
+
+  <!-- Page-Info -->  
+  <div data-role="main" class="ui-content">
+  
+    <div align="center">
+       <h3>%Title% <span style="font-size: 70%">(%Year%)</span></h3>       
+       <p>%Length% min - %GenreList%</p>
+       <p>Premiere: %ReleaseDate%</p>
+    </div>    
+
+    <!-- Links -->  
+    <ul data-role="listview" data-inset="true">    
+      
+      <li>
+         <a href="%ImdbUrl%" style="background-color:#%RatingImdbColor%;" target="_blank">
+            <img src="icons/imdb.png" alt="imdb" class="ui-li-icon">
+            IMDb - %RatingImdb%/10 bei %RatingImdbCount% Nutzern
+         </a>      
+      </li>
+
+      <li>
+         <a href="%MetaCriticSearchString%" style="background-color:#%RatingMetaCriticColor%;" target="_blank">
+            <img src="icons/metacritic.png" alt="metacritic" class="ui-li-icon">
+            Metacritic - %RatingMetaCritic%/10
+         </a>
+      </li>
+      
+      <li>
+         <a href="%AmazonSearchString%" target="_blank">
+            <img src="icons/amazon.png" alt="amazon" class="ui-li-icon">
+            Amazon
+         </a>
+      </li>      
+      
+      <li>
+         <a href="%YoutubeSearchString%" target="_blank">
+            <img src="icons/youtube.png" alt="youtube" class="ui-li-icon">
+            Youtube
+         </a>
+      </li>
+     
+      <li>
+         <a href="%TheMovieDbSearchString%" target="_blank">
+            <img src="icons/themoviedb.png" alt="themoviedb" class="ui-li-icon">
+            TheMovieDB
+         </a>
+      </li>
+      
+      <li>
+         <a href="%RottenTomatoesSearchString%" target="_blank">
+            <img src="icons/rottentomatoes.png" alt="rottentomatoes" class="ui-li-icon">
+            Rotten Tomatoes
+         </a>
+      </li>      
+
+      <li>
+         <a href="%GoogleSearchString%" target="_blank">
+            <img src="icons/google.png" alt="google" class="ui-li-icon">
+            Google
+         </a>
+      </li>           
+      
+      <li>
+         <a href="%BingSearchString%" target="_blank">
+            <img src="icons/bing.png" alt="bing" class="ui-li-icon">
+            Bing
+         </a>
+      </li>              
+    </ul>
+    
+    <br>
+    <p><strong>Plot:</strong> %PlotSimple%</p>
+    <p><strong>Director(s):</strong> %DirectorsList%</p>
+    <p><strong>Stars:</strong> %ActorsList%</p>        
+
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" class="ui-state-persist" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" data-icon="camera">Poster</a></li>
+        <li><a href="#datei" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" data-icon="edit">Aktionen</a></li>
+        <li><a href="#" data-icon="delete" class="CloseWindow">Schließen</a></li>
+      </ul>
+    </div>    
+  </div>  
+  
+</div> 
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Poster-Image -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div data-role="page" id="poster" data-theme="b" style="background-color:black">
+   
+  <!-- Page-Info -->
+  <div data-role="main" class="ui-content" >     
+     <div align="center">
+       <br>
+       <a href="#MoviePosterPopup" data-rel="popup" data-position-to="window">
+         <img class="%ImageCssClass%" src="%PosterImage%" alt="PosterImage" style="width:80%;">
+       </a>
+       
+       <!-- MoviePosterPopup -->
+       <div data-role="popup" id="MoviePosterPopup">
+         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+         <img src="%PosterLarge%" alt="PosterImage">
+       </div>     
+        
+     </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" class="ui-state-persist" data-icon="camera">Poster</a></li>
+        <li><a href="#datei" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" data-icon="edit">Aktionen</a></li>
+        <li><a href="#" data-icon="delete" class="CloseWindow">Schließen</a></li>        
+      </ul>
+    </div>    
+  </div>
+      
+</div> 
+
+               
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Datei -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div data-role="page" id="datei">
+
+  <!-- Page-Info -->  
+  <div data-role="main" class="ui-content">
+    <ul data-role="listview" data-inset="true">
+    
+      <li data-role="list-divider">Video</li>
+      <li>%VideoInfo%</li>
+      
+      %ResolutionIcons%      
+      
+      %MovieThumbnails%
+      
+      <li data-role="list-divider">Audio</li>
+      <li>%AudioInfo%</li>
+      
+      %DtsIcon%
+
+      %DolbyIcon%
+      
+      <li data-role="list-divider">Weitere Eigenschaften</li>
+      <li>%FileSize% (%FileVideoDuration%) <br>Created: %FileDate% <br>Added: %AddDate% </li>
+      <li><a href="#filenamePopup" data-rel="popup" data-transition="slidedown">%Filename%  %FileExistsIcon%</a></li>
+      <li>Disk: %FileDisk%</li>     
+    </ul>  
+    <!-- Filename-Popup -->
+    <div data-role="popup" id="filenamePopup" class="ui-content">
+      <p>%Filename%</p>
+    </div>
+  </div>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Footer -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" data-icon="camera">Poster</a></li>        
+        <li><a href="#datei" class="ui-state-persist" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" data-icon="edit">Aktionen</a></li>
+        <li><a href="#" data-icon="delete" class="CloseWindow">Schließen</a></li>
+      </ul>
+    </div>    
+  </div>    
+  
+</div> 
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Aktionen -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div data-role="page" id="Aktionen">
+
+   <!-- Page-Info -->  
+   <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-inset="true">    
+    
+     <!-- Film-Eigenschaften -->
+     <li data-role="list-divider">Film</li>
+       <fieldset data-role="controlgroup" data-iconpos="right">              
+           <label for="watched" id="watchedLabel">
+             <img alt="Gesehen" src="icons/completed.png" border="0" height="32" width="32" style="vertical-align:middle;">
+             &nbsp;&nbsp;<span id="watchedText">Gesehen</span>
+           </label>
+           <input name="watched" id="watched" type="checkbox">
+                   
+           <label for="archived" >
+             <img alt="Archivieren" src="icons/archive.png" border="0" height="32" width="32" style="vertical-align:middle;">
+             &nbsp;&nbsp;Archiviert
+           </label>
+           <input name="archived" id="archived" type="checkbox">
+
+           <label for="favourite">
+             <img alt="Favorit festlegen" src="icons/heart.png" border="0" height="32" width="32" style="vertical-align:middle;">
+             &nbsp;&nbsp;Favorit
+           </label>
+           <input name="favourite" id="favourite" type="checkbox">     
+       </fieldset>
+       
+      <!-- Tag-Listview-Eintrag -->
+      <li data-role="list-divider">Tags</li>
+      <li>
+         <a href="#TagChangeDialog">
+            <img src="icons/tag.png" alt="tag" class="ui-li-icon">
+            <span id="TagList">%TagList%</span>
+         </a>
+      </li> 
+      </ul>
+      
+      
+      <ul data-role="listview" data-inset="true">  
+      <!-- Fernbedienung -->
+      <li data-role="list-divider">Fernbedienung</li>
+      <li>
+         <a href="#" id="remoteExecute">
+            <img src="icons/execute.png" alt="execute" class="ui-li-icon">
+            Programm ausführen
+         </a>
+      </li>   
+      <li>
+         <a href="#" id="shutdownPc">
+            <img src="icons/shutdown.png" alt="shutdown" class="ui-li-icon">
+            PC herunterfahren
+         </a>
+      </li> 
+    </ul>
+    </div> 
+    
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Footer -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" data-icon="camera">Poster</a></li>
+        <li><a href="#datei" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" class="ui-state-persist" data-icon="edit">Aktionen</a></li>
+        <li><a href="#" data-icon="delete" class="CloseWindow">Schließen</a></li>
+      </ul>
+    </div>    
+  </div>    
+  
+</div> 
+
+
+
+
+<!-- TagChangeDialog -->
+<div data-role="page" id="TagChangeDialog" data-dialog="true" data-close-btn="right">
+   <div data-role="header">
+   <h1>Tags anpassen</h1>
+   </div>    
+   <div data-role="main" class="ui-content">
+      <table align="center">
+        <tr>
+          <td><img src="icons/tag.png" alt="tag" height="32" width="32"></td>
+          <td><h3>%Title% <span style="font-size: 70%">(%Year%)</span></h3></td>
+        </tr>      
+      </table>      
+            
+      <div id="TagListChange" align="center">
+      <!-- hier werden dynamisch die Tag-Items des Films hinzugefügt -->
+      </div>
+      <p></p>
+      <div id="TagListForm">   
+         <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Tags durchsuchen..." data-inset="true" id="TagListView">
+            <!-- hier werden dynamisch die Autocomplete-ListView-Tag-Items hinzugefügt -->
+         </ul>    
+      </div> 
+      
+      <a href="#" class="ui-btn ui-icon-check ui-btn-icon-right"  data-rel="back" id="SaveTagList">Speichern</a>
+      <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-right" data-rel="back" >Schließen</a>
+   </div>      
+</div>    
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Generischer Confirm-Dialog, wird von JS-Funktion ShowConfirmDialog() verwendet -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div data-role="page" data-dialog="true" data-close-btn="right" id="MyConfirmDlg" data-title="Sicherheitsabfrage">
+  <div data-role="main" class="ui-content">
+    <h3 id="MyConfirmDlgTitle">Temp. Titel</h3>
+    <p id="MyConfirmDlgDescription">Temp. Beschreibung</p>
+    <a href="#" id="MyConfirmDlgBtnYes" class="ui-btn ui-icon-check ui-btn-icon-right">Temp. YesText</a>
+    <a href="#" id="MyConfirmDlgBtnNo" class="ui-btn ui-icon-delete ui-btn-icon-right" data-rel="back" >Temp. NoText</a>
+  </div>
+</div>
+
+</body>
+</html>

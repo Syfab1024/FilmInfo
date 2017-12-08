@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>FilmInfo</title>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon"> 
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/ui-darkness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+<style>
+body  {font: normal 90% Arial, Helvetica, sans-serif; color: white; background: #000;}
+
+.ListSelectable .ui-selecting { background: #FECA40; }
+.ListSelectable .ui-selected { background: #F39814; color: white; }
+.ListSelectable { list-style-type: none; margin: 0; padding: 0; width: 220px /*entspricht Breite des zugehörigen Dialogs, am besten Dialogbreite - 50*/; }
+.ListSelectable li { margin: 3px; padding: 1px; float: left; width: 90px; height: 50px; font-size: 1em; text-align: center; }
+ </style>
+
+ 
+<script type="text/javascript">
+/*************************************************************************************************************
+   wenn Seite fertig geladen ist...
+*************************************************************************************************************/
+
+// Klasse für erweiterte Dialoginformationen
+function DialogInfo(typeStrParam, typeDialogParam){
+   this.typeStr = typeStrParam;
+   this.typeDialog = typeDialogParam;
+}
+
+
+$(document).ready(function()
+{
+   var dialogArray = [];
+
+   // Allgemeine Dialog-undButton-Erstell-Funktion
+   // typStr := "Genre", "Tag", ..., typeDialogParam := "text", "select"
+   function createDialogAndButton(dialogWidth, dialogHeight, typeStr, typeDialogParam)
+   {
+      // Dialog erstellen
+      var selector = '#' + typeStr + 'Dialog';     
+      var typeDialog = $( selector ).dialog(
+      {
+         autoOpen: false,
+         height: dialogHeight,
+         width: dialogWidth,
+         modal: true,
+         buttons: {
+            "Übernehmen": function (){
+               getSearchFilterText();               
+               typeDialog.dialog("close");
+            },
+            "Abbrechen": function() {
+               typeDialog.dialog( "close" );
+            }
+         },
+         close: function() {
+         }
+      });
+
+      // zum Dialog gehörenden Button anlegen
+      selector = typeStr + 'DialogShow';
+      $("#SearchButtons").append('<button id="' + selector + '">' + typeStr + '</button>');
+      
+      // dafür sorgen, dass Dialog bei onClick auf zugehörigen Button geöffnet wird
+      selector = '#' + selector;
+      $(selector).button().on("click", function()
+      {
+         typeDialog.dialog( "open" );
+      });      
+      
+      // Speichern, welcher Dialog eben angelegt wurde
+      var dialogInfo = new DialogInfo(typeStr, typeDialogParam);
+      dialogArray.push(dialogInfo);
+   }
+   
+   // ermittelt anhand der vom Nutzer festgelegten Rechercheparameter einen Anzeigetext
+   function getSearchFilterText()
+   {
+      var resultString = "";
+      var searchParams = "";
+      
+      /*
+      resultString += $("#txtTitle").val() + ", ";
+      resultString += $("#GenreDialog .ui-selected").text() + ", ";
+      resultString += $("#TagDialog .ui-selected").text() + ", ";
+      */
+      
+      for(index = 0; index < dialogArray.length; index++) {
+         var dialogInfo = dialogArray[index];         
+         
+         if (dialogInfo.typeDialog == "text"){
+            var selector = "#txt" + dialogInfo.typeStr;
+            var filterText = $(selector).val();
+            if (filterText.length)
+               resultString += dialogInfo.typeStr + ": " + filterText + ", ";
+         }
+         else if (dialogInfo.typeDialog == "select")
+         {
+            var selector = "#" + dialogInfo.typeStr + "Dialog .ui-selected"
+            
+            var filterText = $(selector).text();
+            if (filterText.length && filterText != "Alle")
+               resultString += dialogInfo.typeStr + ": " + filterText + ", ";
+         }
+      }       
+      if (!resultString.length)
+      {
+         resultString = "-";
+      }
+      else
+      {
+         // letztes Komma entfernen
+         resultString = resultString.substring(0, resultString.length - 2);
+      }
+      $("#result").text(resultString);
+   }
+   
+   // Dialoge + Buttons erstellen
+   createDialogAndButton(320, 180, "Title", "text");
+   createDialogAndButton(320, 180, "Director", "text");
+   createDialogAndButton(320, 500, "Genre", "select");
+   createDialogAndButton(320, 500, "Tag", "select"); 
+   
+   // alle Listenelemente selektierbar machen
+   $(".ListSelectable").selectable();
+   
+   // anhander der aktuellen Auswahl initial den zugehörigen Text anzeigen
+   getSearchFilterText();
+});
+
+</script>
+ 
+</head>
+
+
+
+<body>
+
+<!------------------------------------------------------>
+<!-- DIALOGS -->
+<!------------------------------------------------------>
+<div id="TitleDialog" title="Titel suchen">
+   <label for="txtTitle">Titel: </label>
+   <input id="txtTitle"></input>
+</div>
+
+<div id="DirectorDialog" title="Texteingabe">
+   <label for="txtDirector">Director: </label>
+   <input id="txtDirector"></input>
+</div>
+
+
+<div id="GenreDialog" title="Auswahl">
+<ol class="ListSelectable">
+   <li class="ui-state-default">Alle</li>
+   <li class="ui-state-default">Animation</li>
+   <li class="ui-state-default">Music</li>
+   <li class="ui-state-default">Bollywood</li>
+   <li class="ui-state-default">Action</li>
+   <li class="ui-state-default">Adventure</li>
+   <li class="ui-state-default">Horror</li>
+   <li class="ui-state-default">Fantasy</li>
+   <li class="ui-state-default">Science-Fiction</li>
+   <li class="ui-state-default">Musical</li>
+   <li class="ui-state-default">Animation</li>
+   <li class="ui-state-default">Music</li>
+   <li class="ui-state-default">Bollywood</li>
+   <li class="ui-state-default">Action</li>
+   <li class="ui-state-default">Adventure</li>
+   <li class="ui-state-default">Horror</li>
+   <li class="ui-state-default">Fantasy</li>
+   <li class="ui-state-default">Science-Fiction</li>
+   <li class="ui-state-default">Musical</li>
+</ol>
+</div>
+
+
+<div id="TagDialog" title="Auswahl">
+<ol class="ListSelectable">
+   <li class="ui-state-default">Alle</li>
+   <li class="ui-state-default">Sammlung 1</li>
+   <li class="ui-state-default">Sammlung 15</li>
+   <li class="ui-state-default">Ani</li>
+   <li class="ui-state-default">Zweite Wahl</li>
+</ol>
+</div>
+
+
+<!------------------------------------------------------>
+<!-- Startseite ---------------------------------------->
+<!------------------------------------------------------>
+<div align="center">
+</br>
+
+<!------------------------------------------------------>
+<!-- Buttons zum öffnen der Dialoge ---------------------------------------->
+<!------------------------------------------------------>
+<div id="SearchButtons"></div>
+
+</br>
+</br>
+<div>
+Ausgewählte Eigenschaften: <div id="result">-</div>
+</div>
+
+</div>
+
+</body>
+</html>

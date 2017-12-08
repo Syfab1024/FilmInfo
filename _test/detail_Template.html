@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Der große Gatsby - Filmliste</title>
+<meta charset="ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="expires" content="7200">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
+
+<script type="text/javascript">
+   var _MovieId = 123456;
+</script>
+<script src="script.js"></script>
+
+
+
+<style type="text/css">
+/* Rahmenfarbe um die MoviePoster-Images je nach Filmauflösung */
+.imageicon_SD {max-width:95%; border:3px outset #FFFFFF;}
+.imageicon_720 {max-width:95%; border:3px outset #04B404;}
+.imageicon_1080 {max-width:95%; border:3px outset #2E64FE;}
+.imageicon_3D {max-width:95%; border:3px outset #DF013A;}
+ </style>
+
+</head>
+
+
+<body>
+
+<!-- Informationen -->
+<div data-role="page" id="info">
+
+  <!-- Page-Info -->  
+  <div data-role="main" class="ui-content">
+  
+    <div align="center">
+       <h3>Der große Gatsby <span style="font-size: 70%">(2013)</span></h3>       
+       <p>143 min - Drama, Romance</p>
+       <p>Premiere: 2013-05-16</p>
+    </div>
+    
+    <!-- Links -->  
+    <ul data-role="listview" data-inset="true">    
+      
+      <li>
+         <a href="http://www.imdb.com/title/tt1343092" style="background-color:#C3D435;" target="_blank">
+            <img src="icons/imdb.png" alt="imdb" class="ui-li-icon">
+            IMDb - 7,3/10 bei 166.007 Nutzern
+         </a>      
+      </li>
+
+      <li>
+         <a href="http://www.metacritic.com/search/movie/Der+gro%c3%9fe+Gatsby/results" style="background-color:#E3D435;" target="_blank">
+            <img src="icons/metacritic.png" alt="metacritic" class="ui-li-icon">
+            Metacritic - 5,5/10
+         </a>
+      </li>    
+      
+      <li>
+         <a href="http://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85Z%C3%95%C3%91&amp;url=search-alias%3Daps&amp;field-keywords=Der+gro%c3%9fe+Gatsby" target="_blank">
+            <img src="icons/amazon.png" alt="amazon" class="ui-li-icon">
+            Amazon
+         </a>
+      </li>      
+      
+      <li>
+         <a href="http://www.youtube.com/results?search_query=Der+gro%c3%9fe+Gatsby+trailer&amp;oq=Der+gro%c3%9fe+Gatsby+trailer" target="_blank">
+            <img src="icons/youtube.png" alt="youtube" class="ui-li-icon">
+            Youtube
+         </a>
+      </li>
+      
+      <li>
+         <a href="https://www.themoviedb.org/search?query=Der+gro%c3%9fe+Gatsby&amp;language=de" target="_blank">
+            <img src="icons/themoviedb.png" alt="themoviedb" class="ui-li-icon">
+            TheMovieDB
+         </a>
+      </li>
+      
+      <li>
+         <a href="https://www.google.de/search?q=Der+gro%C3%9Fe+Gatsby" target="_blank">
+            <img src="icons/google.png" alt="google" class="ui-li-icon">
+            Google
+         </a>
+      </li>     
+      
+    </ul>
+
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" class="ui-state-persist" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" data-icon="camera">Poster</a></li>
+        <li><a href="#content" data-icon="info">Inhalt</a></li>
+        <li><a href="#datei" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" data-icon="edit">Aktionen</a></li>
+      </ul>
+    </div>    
+  </div>  
+  
+</div> 
+
+
+<!-- Poster-Image -->
+<div data-role="page" id="poster" data-theme="b" style="background-color:black">
+   
+  <!-- Page-Info -->
+  <div data-role="main" class="ui-content" >     
+     <div align="center">
+       <br>
+       <a href="#myPopup" data-rel="popup" data-position-to="window">
+         <img class="imageicon_3D" src="tt1343092.jpg" alt="PosterImage" style="width:60%;">
+       </a>
+
+       <div data-role="popup" id="myPopup">
+         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+         <img src="http://ia.media-imdb.com/images/M/MV5BMTkxNTk1ODcxNl5BMl5BanBnXkFtZTcwMDI1OTMzOQ@@._V1_SY800_.jpg" alt="PosterImage">
+       </div>     
+        
+     </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" class="ui-state-persist" data-icon="camera">Poster</a></li>
+        <li><a href="#content" data-icon="info">Inhalt</a></li>
+        <li><a href="#datei" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" data-icon="edit">Aktionen</a></li>
+      </ul>
+    </div>    
+  </div>
+      
+</div> 
+
+
+<!-- Content -->
+<div data-role="page" id="content">
+
+  <!-- Page-Info -->  
+  <div data-role="main" class="ui-content">
+    <p>A Midwestern war veteran finds himself drawn to the past and lifestyle of his millionaire neighbor.</p>
+    <p><strong>Director(s):</strong> Baz Luhrmann</p>
+    <p><strong>Stars:</strong> Amitabh Bachchan, Steve Bisley, Richard Carter, Jason Clarke, Adelaide Clemens, Vince Colosimo, Max Cullen, Mal Day, Eli...</p>    
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>        
+        <li><a href="#info" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" data-icon="camera">Poster</a></li>
+        <li><a href="#content" class="ui-state-persist" data-icon="info">Inhalt</a></li>
+        <li><a href="#datei" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" data-icon="edit">Aktionen</a></li>
+      </ul>
+    </div>    
+  </div>    
+  
+</div> 
+
+
+<!-- Datei -->
+<div data-role="page" id="datei">
+
+  <!-- Page-Info -->  
+  <div data-role="main" class="ui-content">
+    <ul data-role="listview" data-inset="true">
+    
+      <li data-role="list-divider">Video</li>
+      <li>AVC (1920 x 1080, 8,4 MB/s, 24 fps)</li>
+      <li>
+      <div align="center">
+      <img alt="(3D)" src="icons/3D.png" border="0" height="32"> 
+      <img alt="(1080p)" src="icons/hd_1080p.png" border="0" height="32">      
+      </div>
+      </li>
+      <li>
+         <a href="mtn.htm?file=gatsby.mkv" target="_blank">
+            <img src="icons/Preview.png" alt="preview" class="ui-li-icon">
+            Thumbnails
+         </a>
+      </li>       
+      
+      <li data-role="list-divider">Audio</li>
+      <li>DTS / DTS, German / English, 6, 6 Ch</li>
+      <li>
+      <div align="center">
+         <img alt="DTS" src="icons/dts.png" border="0" height="32">   
+      </div>
+      </li>
+
+      <li>
+      <div align="center">
+         <img alt="Dolby Digital 5.1" src="icons/Dolby_Digital_5_1.png" border="0" height="32">    
+      </div>
+      </li>    
+      
+      <li data-role="list-divider">Weitere Eigenschaften</li>
+      <li>11,9 GB (142 min) - 13.09.2013</li>
+      <li><a href="#filenamePopup" data-rel="popup" data-transition="slidedown">I:/Filme/November2013/Der.Grosse.Gatsby_3D.mkv</a></li>
+      <li>Disk: 2T2</li>
+     
+    </ul>  
+    <div data-role="popup" id="filenamePopup" class="ui-content">
+      <p>I:/Filme/November2013/Der.Grosse.Gatsby_3D.mkv</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" data-icon="camera">Poster</a></li>        
+        <li><a href="#content" data-icon="info">Inhalt</a></li>
+        <li><a href="#datei" class="ui-state-persist" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" data-icon="edit">Aktionen</a></li>
+      </ul>
+    </div>    
+  </div>    
+  
+</div> 
+
+
+<!-- Aktionen -->
+<div data-role="page" id="Aktionen">
+
+   <!-- Page-Info -->  
+   <div data-role="main" class="ui-content">
+   <ul data-role="listview" data-inset="true">    
+    
+     <!-- Film-Eigenschaften -->
+     <li data-role="list-divider">Film</li>
+       <fieldset data-role="controlgroup" data-iconpos="right">              
+           <label for="watched" id="watchedLabel">
+             <img alt="Gesehen" src="icons/completed.png" border="0" height="32" width="32" style="vertical-align:middle;">
+             &nbsp;&nbsp;<span id="watchedText">Gesehen</span>
+           </label>
+           <input name="watched" id="watched" type="checkbox">
+                   
+           <label for="archived" >
+             <img alt="Archivieren" src="icons/archive.png" border="0" height="32" width="32" style="vertical-align:middle;">
+             &nbsp;&nbsp;Archiviert
+           </label>
+           <input name="archived" id="archived" type="checkbox">
+
+           <label for="favourite">
+             <img alt="Favorit festlegen" src="icons/heart.png" border="0" height="32" width="32" style="vertical-align:middle;">
+             &nbsp;&nbsp;Favorit
+           </label>
+           <input name="favourite" id="favourite" type="checkbox">           
+       </fieldset>
+
+      <!-- Fernbedienung -->
+      <li data-role="list-divider">Fernbedienung</li>
+      <li>
+         <a href="execute" target="_blank">
+            <img src="icons/execute.png" alt="execute" class="ui-li-icon">
+            Programm ausführen
+         </a>      
+      </li>   
+      <li>
+         <a href="#" id="shutdownPc">
+            <img src="icons/shutdown.png" alt="shutdown" class="ui-li-icon">
+            PC herunterfahren
+         </a>      
+      </li> 
+    </ul>
+    </div> 
+   
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#info" data-icon="cloud">Infos</a></li>
+        <li><a href="#poster" data-icon="camera">Poster</a></li>
+        <li><a href="#content" data-icon="info">Inhalt</a></li>
+        <li><a href="#datei" data-icon="grid">Datei</a></li>        
+        <li><a href="#Aktionen" class="ui-state-persist" data-icon="edit">Aktionen</a></li>
+      </ul>
+    </div>    
+  </div>    
+  
+</div> 
+
+
+<!-- Generischer Confirm-Dialog, wird von JS-Funktion ShowConfirmDialog() verwendet -->
+<div data-role="dialog" id="MyConfirmDlg" data-title="Sicherheitsabfrage">
+  <div data-role="main" class="ui-content">
+    <h3 class="MyConfirmDlgTitle">Temp. Titel</h3>
+    <p class="MyConfirmDlgDescription">Temp. Beschreibung</p>
+    <a href="#" class="MyConfirmDlgBtnYes" data-role="button" data-rel="back" data-icon="check">Temp. YesText</a>
+    <a href="#" class="MyConfirmDlgBtnNo"  data-role="button" data-rel="back" data-icon="delete">Temp. NoText</a>
+  </div>
+</div>
+
+</body>
+</html>

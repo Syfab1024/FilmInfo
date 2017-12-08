@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{6F06709A-902E-4F63-83D0-8D377167380A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FilmInfo</RootNamespace>
+    <AssemblyName>FilmInfo</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SourceAnalysisOverrideSettingsFile>C:\Dokumente und Einstellungen\schulz.SYNTELA.000\Anwendungsdaten\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <ApplicationIcon>res\MainIcon.ico</ApplicationIcon>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="ExtendedControls">
+      <HintPath>lib\ExtendedControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MILHTMLParser">
+      <HintPath>lib\MILHTMLParser.dll </HintPath>
+    </Reference>
+    <Reference Include="SynSettings">
+      <HintPath>lib\SynSettings.dll </HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frm\FrmHttpServerStatistic.cs" />
+    <Compile Include="frm\FrmHttpServerStatistic.Designer.cs">
+      <DependentUpon>FrmHttpServerStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmInputBox.cs" />
+    <Compile Include="frm\frmInputBox.Designer.cs" />
+    <Compile Include="frm\FrmMain.cs" />
+    <Compile Include="frm\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\FrmOptions.cs" />
+    <Compile Include="frm\FrmOptions.Designer.cs">
+      <DependentUpon>FrmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\ExtendedWebClient.cs" />
+    <Compile Include="src\FileHelper.cs" />
+    <Compile Include="src\FilmInfo.cs" />
+    <Compile Include="src\FilmInfoHttpServer.cs" />
+    <Compile Include="src\FilmInfoManager.cs" />
+    <Compile Include="src\SearchInfo.cs" />
+    <Compile Include="src\HtmlExport.cs" />
+    <Compile Include="src\MediaInfoDLL.cs" />
+    <Compile Include="src\MsgBox.cs" />
+    <Compile Include="src\ShutdownAction.cs" />
+    <Compile Include="src\WindowsController.cs" />
+    <EmbeddedResource Include="frm\FrmHttpServerStatistic.resx">
+      <DependentUpon>FrmHttpServerStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmInputBox.resx" />
+    <EmbeddedResource Include="frm\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\FrmOptions.resx">
+      <DependentUpon>FrmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="frm" />
+    <Folder Include="src" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FilmInfo.cd" />
+    <Content Include="ProfilingSessions\Session20140131_144145.sdps" />
+  </ItemGroup>
+</Project>

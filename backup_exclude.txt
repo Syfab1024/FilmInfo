@@ -1,0 +1,11 @@
+backup_exclude.txt
+backup.cmd
+obj
+MediaInfo.dll
+Newtonsoft.Json.Net20.dll
+*.jpg
+cache
+*.exe
+*.pdb
+*.bak
+mtn-200808a-win32

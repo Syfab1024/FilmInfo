@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>FilmInfo</title>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   %ViewPort%
+
+<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" /> 
+<script src="jquery/jquery-3.1.1.min.js"></script>
+
+<style type="text/css">
+/*Allgemeines*/
+
+* { margin: 0; padding: 0; }  /* damit links und rechts kein Rand bleibt*/
+
+body {
+   font: normal 10px/135% Arial, Helvetica, sans-serif; 
+   background: #000000;
+}
+
+
+/* normale Links */
+a:visited { 
+   color: #1111CC; 
+   text-decoration: none; 
+}
+a:hover { 
+   color: #E47911; 
+   text-decoration: none; 
+}
+     
+/* "Nach oben" - Link*/
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 3px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight:bold;   
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5)
+}
+
+/***************/
+/* Search-Form */
+/***************/
+th {
+   text-align: right;
+   vertical-align: center;
+   font-weight: normal;
+   padding: 4px 5px 5px 10px;
+}
+.searchform table { 
+   border-collapse: collapse; 
+   text-align: left; 
+   width: 100%;
+}    
+.searchform {
+   background: #FFFFFF; 
+   border: 1px solid #000000; 
+   border-radius: 10px; 
+   box-shadow: 10px 10px 14px -4px rgba(255,255,255,0.65);
+   margin: 2px 10px 10px 2px;
+}
+.centerButton {
+   text-align: center;
+}
+.btnSearch {
+   font: normal 12px/100% Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   color: #FFFFFF;
+   border: 2px solid #FFFFFF;
+   box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.75);
+   background-color:#000000; 
+   height: 30px; 
+   padding: 5px;
+   margin: 10px;         
+} 
+input {
+   margin: 5px;
+   padding: 2px;
+   border: 1px solid #BBBBBB !important;
+   height: 25px; 
+   box-shadow: 5px 5px 5px -4px rgba(0,0,0,0.75);
+ }
+select {
+   border: 1px solid #BBBBBB !important;
+   -webkit-appearance: none;  /*Removes default chrome and safari style*/
+   -moz-appearance: none; /* Removes Default Firefox style*/
+   appearance:none;
+   border-radius: 10px;
+   padding: 5px;
+   margin: 5px;   
+   box-shadow: 5px 5px 5px -4px rgba(0,0,0,0.75);
+}
+/* damit Recherche-Form nicht zu breit wird: Abschneiden */
+.customTD {
+   overflow:hidden; 
+}
+
+/***************************************************************/
+/* Rahmenfarbe um die MoviePoster-Images je nach Filmauflösung */
+/***************************************************************/
+.imageicon_SD {max-width:95%; border:3px #FFFFFF; border-style: solid;margin: -1px;}
+.imageicon_720 {max-width:95%; border:3px #04B404; border-style: solid;margin: -1px;}
+.imageicon_1080 {max-width:95%; border:3px #2E64FE; border-style: solid;margin: -1px;}
+.imageicon_3D {max-width:95%; border:3px #DF013A; border-style: solid;margin: -1px;}
+.imageicon_None {max-width:95%;margin: -1px;}
+
+
+
+/********************************************/
+/* Text im Bild in Icon-Ansicht -> Container*/
+/********************************************/
+/*Image, auf dem anschließend der Text plaziert wird*/
+.image { 
+   position: relative; 
+   margin-bottom: 0px; 
+   width: 100%; 
+   display:inline; /* damit trotz "div" kein Zeilenumbruch stattfindet!*/
+}
+
+/*Text/Sterne oben links auf Image: Auflösung, Bewertung*/
+/*Pos + Breite*/
+.h3 { 
+   position: absolute; 
+   bottom: %TopIconDetails%px; 
+   left: 3px; 
+   width: 100%; 
+}
+
+/*Texteigenschaften, schattiert für bessere Lesbarkeit*/
+.h3span { 
+   color: white; 
+   font: 9px/12px Arial, Helvetica, sans-serif;  
+   font-weight: bold;
+   text-shadow: 0px 0px 1px black, 0px 0px 2px black, 0px 0px 3px black;
+   padding: 0px;
+}
+
+                      
+/*Text unten links auf Image: Titel, Jahr, Dauer, Genre */
+/*Pos + Breite*/
+.h2 { 
+   position: absolute; 
+   bottom: 8px; 
+   left: 4px; 
+   width: 90%; 
+}
+
+/*Texteigenschaften, schattiert für bessere Lesbarkeit*/
+.h2span { 
+   color: white;                       
+   font: 13px/15px Arial, Helvetica, sans-serif;  
+   font-weight: bold;
+   text-shadow: 0px 0px 1px black, 0px 0px 2px black, 0px 0px 3px black, 0px 0px 4px black, 0px 0px 5px black, 0px 0px 6px black;
+   padding: 0px;
+   letter-spacing: -1px;  
+}
+
+/*kleinerer Text im Bild (Jahr, Dauer, Genre)*/                      
+.iconTextSmall {
+   font-size: 11px;
+}
+                      
+
+                      
+/*****************************/                      
+/*für Links am Ende der Seite*/
+/*****************************/
+.executeLink, a.executeLink:visited { 
+   font: 13px/100% Arial, Helvetica, sans-serif;  
+   text-align: center; 
+   color: #FFFFFF;    
+   font-weight:bold;   
+   text-decoration: none; 
+}
+ 
+ /*************************************************************************************/
+ /* für Bewertungssterne, siehe http://www.buntesuppe.de/blog/124/css-bewertung-sterne*/
+ /*************************************************************************************/
+ .rating_bar {
+   width: 110px; /* Breite des Stern-Icons mal Gesamtzahl Sterne + Offset(z.B. 5 Sterne --> 5 x 12px + 4px = 60px)*/
+   height: 12px;
+   background: url(icons/rating_bw.png);
+   background-size: 22px 12px; /* Breite eines Stern-Icons */
+   background-repeat: repeat-x; /* in x-Achse wiederholen*/
+}
+
+.rating_bar div {
+   height: 12px;
+   background: url(icons/rating.png);
+   background-size: 22px 12px;  /* Breite eines Stern-Icons */
+   background-repeat: repeat-x; /* in x-Achse wiederholen*/
+}
+
+</style>
+
+
+
+<script type="text/javascript">
+   <!--
+   $(document).ready(function()
+   {
+      // SearchForm sofort ausblenden
+      $("#SearchForm").fadeOut( 0, "linear" );
+
+      // Suchformular ausblenden
+      $("#BtnSearchFormFadeOut").click(function() {
+         $("#BtnSearchFormFadeIn").fadeIn( 0, "swing" );
+         $("#SearchForm").fadeOut( "fast", "swing" );
+      });       
+
+      // Suchformular einblenden
+      $("#BtnSearchFormFadeIn").click(function() {
+         $("#BtnSearchFormFadeIn").fadeOut( 0, "swing" );
+         $("#SearchForm").fadeIn( "fast", "swing" );
+      }); 
+
+
+      $("#shutdownPcLink").click(function() {
+         shutdownPc();
+      });
+
+      $("#BtnReset").click(function() {
+         reset_form();
+      });      
+   });
+   
+   
+   function shutdownPc() 
+   {
+      var answer = confirm("Wollen sie den Rechner wirklich herunterfahren?");
+      if (answer){
+         window.location = "shutdown";
+      }
+   }   
+   
+   function reset_form() 
+   {
+      var form = document.forms[0];
+      for(i = 0; i < form.elements.length; i++){
+       if (form.elements[i].type == 'search' || form.elements[i].type == 'textarea')
+       {
+         form.elements[i].value = '';
+       }
+       else if (form.elements[i].type == 'select-one')
+       {
+         if (form.elements[i].name == 'Watched' || form.elements[i].name == 'Archieved' 
+             || form.elements[i].name == 'SortAscending')
+         {
+            form.elements[i].value = 'Unchecked';
+         }
+         else if (form.elements[i].name == 'ViewStyle')
+         {
+            form.elements[i].value = 'Icons';
+         }  
+         else if (form.elements[i].name == 'ShowIconDetails' || form.elements[i].name == 'OnlyMovies' )
+         {
+            form.elements[i].value = 'Checked';
+         }        
+         else if (form.elements[i].name == 'HalfSize')
+         {
+            form.elements[i].value = 'Unchecked';
+         }
+         else if (form.elements[i].name == 'ShowFrame')
+         {
+            form.elements[i].value = 'Nein';
+         }
+         else if (form.elements[i].name == 'SortByColumnName')
+         {
+            form.elements[i].value = 'Hinzugefuegt';
+         }                  
+         else         
+            form.elements[i].value = '';
+       }       
+      }
+   }
+   //-->
+</script>
+   
+</head>
+<body>
+%FormData%
+
+
+<div class="centerButton">
+<button class="btnSearch" id="BtnSearchFormFadeIn">Suchformular einblenden</button>
+</div>
+
+
+<a id="result"></a>
+%ResultTable%
+<br /> 
+
+%Footer%
+</body>
+</html>

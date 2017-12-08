@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Filmliste</title>
+<meta http-equiv="expires" content="7200">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+%ViewPort%
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+<style type="text/css">
+
+
+/*Allgemeines*/
+*					{ margin: 0; padding: 0; }  /* damit links und rechts kein Rand bleibt*/
+ol, ul {margin-top: 0;margin-bottom: 0;}   /* Liste */
+
+body  {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #000;}
+
+th {
+   text-align: right;
+   vertical-align: top;
+   font-weight: normal;
+   padding: 4px 5px 0px 10px;   
+}
+
+
+/* normale Links */
+a:visited { 
+   color: #1111CC; 
+   text-decoration: none; 
+}
+a:hover { 
+   color: #E47911; 
+   text-decoration: none; 
+}
+     
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 3px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight:bold;   
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5)
+}
+
+/* Search-Form */
+.searchform table { border-collapse: collapse; text-align: left; width: 100%;} 
+.searchform {background: #dee; border: 1px solid #006699; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+ 
+.btnSearch {font: normal 15px/150% Arial, Helvetica, sans-serif;color:#000000;
+            border: 1px solid #000000;background-color:#CCFFFF; height: 30px} 
+
+input {
+   margin: 0px;
+   padding: 1px;
+   border: 1px solid #BBBBBB !important;
+   height: 30px; 
+ }
+ 
+select {
+   margin: 0px;
+   padding: 0px;
+   border: 1px solid #BBBBBB !important;
+   height: 30px; 
+}
+
+.customTD {height: 30px; overflow:hidden; text-overflow: ellipsis; }
+
+/* Rahmenfarbe um die MoviePoster-Images je nach Filmauflösung */
+.imageicon_SD {max-width:95%; border:4px outset #FFFFFF;}
+.imageicon_720 {max-width:95%; border:4px outset #04B404;}
+.imageicon_1080 {max-width:95%; border:4px outset #2E64FE;}
+.imageicon_3D {max-width:95%; border:4px outset #DF013A;}
+
+
+/* Tabelle für Detail-Ansicht -> weißer Hintergrund */
+.datagrid td { vertical-align:top; overflow:hidden; text-overflow: ellipsis; width: %TD_Width%px; height: %TD_Height%px;}
+.datagrid table { border-collapse: collapse; text-align: left; width: 100%;} 
+.datagrid {background: #fff; border: 1px solid #006699; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+.datagrid table tbody td { color: #00496B; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }
+.datagrid table tbody 
+.alt td { background: #E1EEF4; color: #00496B; }
+
+.detailLink { 
+   color: #1111CC; 
+   text-decoration: none; 
+}
+ 
+
+/* Tabelle für Icon-Ansicht -> schwarzer Hintergrund */
+.iconview table { border-collapse: collapse; text-align: left; width: 100%;} 
+.iconview td { vertical-align:top; overflow:hidden; text-overflow: ellipsis; width: %TD_Width%px; height: %TD_Height%px;}
+.iconview {background: #000;}
+
+.iconLink, a.iconLink:visited {    color: #FFFFFF;    font-weight:bold;   text-decoration: none; }
+.iconText {    color: #AAAAAA;    text-decoration: none; }
+ 
+
+/* Text im Bild in Icon-Ansicht -> Container*/
+.image              { position: relative; margin-bottom: 0px; width: 100%; }
+.h2                 { position: absolute; bottom: 8px; left: 4px; width: 90%; }
+.h2span             { color: white; font: normal 19px/23px Arial, Helvetica, sans-serif; letter-spacing: -1px;  
+                      background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.6); padding: 0px;}
+.iconTextSmall      { color: white; font: normal 15px/19px Arial, Helvetica, sans-serif; letter-spacing: -1px;  
+                      background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.0); padding: 1px;}
+
+.executeLink, a.executeLink:visited { font: normal 17px/115% Arial, Helvetica, sans-serif;  text-align: center; 
+                               color: #FFFFFF;    font-weight:bold;   text-decoration: none; }
+ 
+</style>
+
+<script language="JavaScript" type="text/javascript">
+   <!--
+   function shutdownPc() {
+      var answer = confirm("Wollen sie den Rechner wirklich herunterfahren?")
+      if (answer){
+         window.location = "shutdown";
+      }
+      else{
+         
+      }
+   }   
+   
+   function reset_form() 
+   {
+      var form = document.forms[0];
+      for(i=0; i < form.elements.length; i++){
+       if (form.elements[i].type == 'search' || form.elements[i].type == 'textarea')
+       {
+         form.elements[i].value = '';
+       }
+       else if (form.elements[i].type == 'select-one')
+       {
+         if (form.elements[i].name == 'Watched' || form.elements[i].name == 'Archieved' 
+             || form.elements[i].name == 'SortAscending')
+         {
+            form.elements[i].value = 'Unchecked';
+         }
+         else if (form.elements[i].name == 'ViewStyle')
+         {
+            form.elements[i].value = 'Icons';
+         }  
+         else if (form.elements[i].name == 'ShowIconDetails' || form.elements[i].name == 'OnlyMovies' )
+         {
+            form.elements[i].value = 'Checked';
+         }          
+         else if (form.elements[i].name == 'SortByColumnName')
+         {
+            form.elements[i].value = 'Hinzugefuegt';
+         }                  
+         else         
+            form.elements[i].value = '';
+       }       
+      }
+   }
+   //-->
+</script>
+   
+</head>
+<body>
+<br /> 
+%FormData%
+<br /> 
+%ResultTable%
+<br /> 
+%Footer%
+</body>
+</html>

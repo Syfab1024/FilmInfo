@@ -1,0 +1,4 @@
+d:\temp\d\tst\
+d:\temp\d\mtn-200808a-win32\doc\
+d:\temp\d\tst\wrgqwh\
+d:\dev\FilmInfo\bin\Debug\Backup\

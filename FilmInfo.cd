@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ClassDiagram Zoom="1" MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="FilmInfo.FilmInfo" Collapsed="False">
+    <Position X="0.5" Y="0.5" Width="2.186671" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.FrmMain" Collapsed="False">
+    <Position X="0.5" Y="11.8" Width="3.820666" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.FrmOptions" Collapsed="False">
+    <Position X="0.5" Y="38" Width="1.96506" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.SearchInfo" Collapsed="False">
+    <Position X="0.5" Y="40.9" Width="1.889167" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.HtmlExport" Collapsed="False">
+    <Position X="0.5" Y="45.8" Width="2.798009" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.FilmInfoSorter" Collapsed="False">
+    <Position X="0.5" Y="52" Width="1.579176" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.Program" Collapsed="False">
+    <Position X="0.5" Y="54.5" Width="1.444186" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ExtendedWebClient" Collapsed="False">
+    <Position X="0.5" Y="55.8" Width="4.512624" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+      <Compartment Name="Events" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="Helper.FileHelper" Collapsed="False">
+    <Position X="0.5" Y="61.7" Width="2.198288" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.FilmInfoHttpServer" Collapsed="False">
+    <Position X="0.5" Y="63" Width="2.469567" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Enum Name="MediaInfoLib.StreamKind" Collapsed="False">
+    <Position X="0.5" Y="68.5" Width="1.774528" />
+    <Compartments />
+  </Enum>
+  <Enum Name="MediaInfoLib.InfoKind" Collapsed="False">
+    <Position X="0.5" Y="70.7" Width="1.855793" />
+    <Compartments />
+  </Enum>
+  <Enum Name="MediaInfoLib.InfoOptions" Collapsed="False">
+    <Position X="0.5" Y="72.9" Width="2.259001" />
+    <Compartments />
+  </Enum>
+  <Enum Name="MediaInfoLib.InfoFileOptions" Collapsed="False">
+    <Position X="0.5" Y="74.6" Width="2.772316" />
+    <Compartments />
+  </Enum>
+  <Class Name="MediaInfoLib.MediaInfo" Collapsed="False">
+    <Position X="0.5" Y="76.3" Width="3.178981" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="MediaInfoLib.MediaInfoList" Collapsed="False">
+    <Position X="0.5" Y="84.3" Width="2.134089" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="Helper.MsgBox" Collapsed="False">
+    <Position X="0.5" Y="89.9" Width="2.300109" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.FrmHttpServerStatistic" Collapsed="False">
+    <Position X="0.5" Y="91.9" Width="2.859723" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.ShutdownAction" Collapsed="False">
+    <Position X="0.5" Y="94.8" Width="2.217126" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.frmInputBox" Collapsed="False">
+    <Position X="0.5" Y="96.9" Width="1.799792" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FilmInfo.FilmInfoManager" Collapsed="False">
+    <Position X="0.5" Y="100.1" Width="2.654118" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Enum Name="Org.Mentalis.Utilities.RestartOptions" Collapsed="False">
+    <Position X="0.5" Y="104.9" Width="2.057209" />
+    <Compartments />
+  </Enum>
+  <Struct Name="Org.Mentalis.Utilities.LUID" Collapsed="False">
+    <Position X="0.5" Y="106.9" Width="1.140007" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Struct>
+  <Struct Name="Org.Mentalis.Utilities.LUID_AND_ATTRIBUTES" Collapsed="False">
+    <Position X="0.5" Y="108.4" Width="1.906188" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Struct>
+  <Struct Name="Org.Mentalis.Utilities.TOKEN_PRIVILEGES" Collapsed="False">
+    <Position X="0.5" Y="109.9" Width="2.398776" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Struct>
+  <Class Name="Org.Mentalis.Utilities.WindowsController" Collapsed="False">
+    <Position X="0.5" Y="111.5" Width="2.724318" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="Org.Mentalis.Utilities.PrivilegeException" Collapsed="False">
+    <Position X="0.5" Y="115.9" Width="2.447653" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+</ClassDiagram>

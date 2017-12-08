@@ -1,0 +1,163 @@
+
+- statt Tabelle (ist wohl veraltet): https://entwickler.de/online/web/flexbox-css3-html5-grid-579792873.html
+
+http://www.imagehover.io/#download
+- Auswahl: halbe Größe, normale Größe, doppelte Größe, ... (0.5x, 1x, 2x, ...)
+   - nicht nur von oben nach unten, sondern von links nach rechts scrollen (so dass immer nur ein Bild sichtbar...)
+- "Datei löschen" in Webansicht + Prog einbauen?
+- Shutdown: schöner machen? Erfolgsmeldung/Fehlermeldung --> action.htm
+- Externes Programm starten: schöner machen?    --> action.htm
+- schönere Recherche (mobil-fähig) --> bei omive klauen
+   -  http://jquerycards.com/ui/filter-sort/filtrify/
+- DB in SQLite übernehmen...
+- Ggf. Sterne-Bewertung anders gestalten (0-5 Punkte --> Rote Sterne, 6-10 Punkte --> Gelbe Sterne)?  
+
+ist leider vom aktuell deaktivierten IMDB-Login abhängig:
+- eigene Bewertung bei IMDB speichern (per Programm/Webseite)
+- Wunschliste: Filme, die ich gern noch sehen würde (?) --> IMDB-Liste
+
+
+Erledigt:
+OK: - engl. Filmtitel anzeigen
+OK: - mit aufnehmen: https://www.rottentomatoes.com/search/?search=trainspotting
+OK: - Land des Films aus IMDB ermittelbar? --> in Web-Ansicht anzeigen (an IMDB.com orientieren)
+OK: - Bewertung am oberen Bilderrand in IconListe schöner darstellen (Sterne a la Amazon? Farbig?)
+OK:    - Code: <div class="h3"><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /><img border="0" alt="Stern" width="8" height="8" src="star1.png" /></div>
+OK: - Alias-Liste: Mapping Dateiname <--> IMDB-Suchname
+OK: - Anzeige aller Filme inkl. einiger Informationen in Liste
+OK: - Klick auf Film: Cover anzeigen
+OK: - Druck-Export (HTML-Liste...)
+OK: - Recherche-Maske (Name, Bewertung, nicht gefundene Filme, ...)
+OK: - Datenträgernamen mit auslesen und speichern (für ext. Festplatten)
+OK: - Speichermöglichkeit für Liste (automatisch?)
+OK: - deutschen Namen ermitteln und anzeigen
+OK: - Typ des Films (Serie, Movie) mit anzeigen und filterbar machen
+OK: - HTML-Liste: Auswahl, ob Bilder online oder offline bezogen werden sollen
+OK: - Ist Film 3D? Anhand Filename ermitteln
+OK: - einzelnen Film (bzw. markierte) aktualisieren
+OK: - Filmanzahl-Anzeige nach Filterung/Anzeige...
+OK: - Film als "gesehen" markierbar machen (+ Filter) -> per Timestamp
+OK: - Film als Favourit markierbar machen
+OK: - wenn Datei existiert -> Aktualisierung
+OK:   - Flag setzen (IsExisting?)
+OK:   - Dateigröße ermitteln
+OK:   - Filmdatei-Analyse: Auflösung, Tonformat
+OK:   - Dateiänderungsdatum ermitteln
+OK: - Filmliste nach Veröffentlichungsdatum sortierbar machen (damit neueste Filme zuerst in Liste)
+OK: - Hinzufügen doppelter Einträge (nach Scan) verhindern (anhand Dateinamen/Query?)
+OK: - Sortierung nach Dateidatum ermöglichen (damit zuletzt runtergeladene zuerst)?
+OK: - automatisch regelmäßige Backups der Filmlist anlegen
+OK: - Auslesen der Channels via MediaInfo
+OK: - Anzeige und Suche ob HD/5.1 oder nicht per Icons...
+OK: - WebServer: Damit bspw. per Handy auf die generierte HTML-Liste (siehe Druck-Funktion) zugegriffen werden kann
+OK:    - ggf. mit Filterfunktion...
+OK: - Suche nach max. Filmlänge
+OK: - MetaCritics.com-Anbindung
+OK: - "Schönmachen" (Icons statt Texte)
+   OK: - Rating mit Sternen anzeigen (HTML + Programm) -> siehe IMDB oder vielleicht farbig (rot -> schlecht, grün -> super)
+OK: - movieThumbnailer einbauen
+    "E:\Media\Eigene Programme\_VonAnderen\MovieThumbnailer-200808a-win32\mtn.exe" -h 100 -b 0,6 ...
+    http://moviethumbnail.sourceforge.net/usage.en.html
+    --> Bilder müssen von Webseite und Programm aus aufrufbar sein
+OK: - Pfadliste (+ Konfiguration? oder nur einfache Textdatei?) einbauen, damit sich Prog merkt, 
+  wo die Dateien liegen und nicht jedesmal manuell aktualisiert werden muss
+OK: - wenn Datei mit gleichem Dateinamen an unterschiedlichen Orten liegt 
+   (oder Datei verschoben wurde)
+   -> automatische Übernahme von "Watched", "Favourite", ...
+   --> GetFilmInfoAndAddToGridView()   
+OK: - imdb.com direkt abziehen, nicht mehr Umweg über ungenaue/unaktuelle imdbapi
+OK: - Icons in html-ansicht unter Bild verschieben
+OK: - Häkchen für 2. Wahl Filme
+OK: - andere Sound/Fav/...-Icons (nur noch kleine...)
+OK: - moviePoster-Icon Übersicht, also Bild und Titel, schwarzer Hintergrund, nach klick Sprung zu detailansicht
+OK: - Button: doppelte Einträge anzeigen/entfernen (anhand 1. imdb-id, 2.query(norm))
+OK: - Leer-Bild anlegen, dass angezeigt wird, wenn kein MoviePoster verfügbar
+OK: - Bilder laden, wenn sie abgefragt werden und noch nicht vorhanden sind, also auch beim Laden der Webseite
+OK: - Webseite an Mobile Geräte anpassen: belesen
+   - 5 Spalten sinnvoll
+   - nicht volle Breite nutzen
+   - siehe z.B. m.golem.de
+   - konfigurierbar machen (je nach Endgerät)
+OK: - Serien: Funktioniert Scan nach Verzeichnissen noch?
+OK: - wenn Webseite auf Handy dargestellt wird (mit viewport...)
+   OK: - Recherchemaske ist nicht mehr sichtbar/scrollbar
+   OK: - Details sind nicht mehr vollständig sichtbar
+   OK: - kann mit kleinem Browserfenster nachgebildet werden...
+OK: - mehr Details in Icon-Übersicht (Web): Year + Rating + Dauer (?)
+OK: - Seitenaufruf ohne Parameter: Such-Klasse zurücksetzen...
+OK: - button: webseite-suche leeren
+OK: - Programm-Icon...
+OK:- HTML-Header: Mime-Type für mtn-Bilder setzen
+OK: - Suche nach SD-Filmen ermöglichen
+OK:- Filterung nach Genre in Webdarstellung
+OK: - Icon-Ansicht Webseite: Farbiger Rahmen um Bilder, je nach Format (SD, 720, 1080, 3D)
+OK: - Filterung nach MinYear
+OK: - Filterung nach Typ (Serie -> Ordner, Film -> Datei, anhand HasExtension...)
+OK: - Icons mit oder ohne infos in webseite (per auswahl)...
+OK: - Sortieren in Webseite einbauen
+OK: - Anchor: bei Recherche direkt zum Ergebnis springen...
+OK: - PS3-Media-Server per Button aus Webseite starten (bzw. benutzerdefiniertes Programm... -> Optionsmenü)
+OK: - PC per Button aus Webseite herunterfahren (mit Sicherheitsabfrage! -> javascript " confirm()")
+OK: - Film in Browser als "gesehen"/"nicht gesehen", "archiviert", "Favorit" usw. markierbar machen
+OK: - mitscrollender "nach oben"-Link
+OK: - Änderung in Prog soll sofort auf Webseite sichtbar sein! (nicht erst nach Prog-Neustart)
+OK: - zufälliger Film gemäß Filterung
+OK: - statt farbiger Rahmen in HTML-Ansicht: Kleine Icons/Texte am oberen Rand des jeweiligen Bildes
+OK: - max. ... Einträge in Iconliste anzeigen (top ...)
+OK: - Iconliste: nur noch halb so große Icons anzeigen (als optionaler Modus)
+OK: - Sound-Infos (deutsch!) in Iconliste anzeigen (z.b. 2.0, 5.1 oder DTS...)
+OK: - wie geht man mit in IMDB nicht bekannten Filmen um (Dokus, ...)? Anzeige? Bild?
+OK:    - wie wird verhindert, dass falsche Infos aus IMDB selektiert werden?
+OK: - https://www.themoviedb.org/documentation/api nutzen für deutsche Texte...   --> ist aber gar nicht so einfach...
+OK: - bei Klick auf "gesehen", "archivieren", ... nicht die Seite neu laden
+
+- Detailfenster schöner gestalten (Unterscheidung zwischen desktop und mobile?)
+      - desktop: ggf. wie bisher
+   /*
+   /*
+   * Simple:	Android (Tablet)
+   * Exact:	   Android Smartphone
+   */
+   const Android_Simple = "/Android/";
+   const Android_exact = "/Android.*Mobile/";
+   */
+      --> Suche in Google nach "User Agent String"
+      --> Firefox-Addon: User Agent Switcher
+   /*
+      Nexus 7: Mozilla/5.0 (Linux; Android 4.4.4; Nexus 7 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Safari/537.36
+      Moto G: Mozilla/5.0 (Linux; Android 4.4.4; XT1032 Build/KXB21.14-L1.40) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36
+      Desktop-Modus: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Safari/537.36
+   */      
+      OK: - mobile: nicht nach rechts verschiebbar, nur nach unten scrollbar, Image bildfüllend, darunter alle weiteren Infos
+      OK: - NEU: eigene Ansicht für Details eines Films (via Id, nicht mehr per Suche...)
+         OK: -> es müssen nicht mehrere Filme in der Liste angezeigt werden
+         OK: --> oder ggf. doch mehrere Filme untereinander zum runterscrollen? Wie macht das Amazon?
+   OK: - Google-Suche nach Film...
+   OK: - MetaCritic-Bewertung ebenfalls einfärben und durch 10 teilen
+   OK: - Fullscreen-Poster: Orig-Mini-Poster: http://ia.media-imdb.com/images/M/MV5BMjA4NDg3NzYxMF5BMl5BanBnXkFtZTcwNTgyNzkyNw@@._V1_SX214_AL_.jpg
+   OK:    --> hinter das "V1" folgendes hängen: "_SX1203_SY802_.jpg" (enthält bereits gewünschte Auflösung)
+   OK:    --> Ergebnis: http://ia.media-imdb.com/images/M/MV5BMjA4NDg3NzYxMF5BMl5BanBnXkFtZTcwNTgyNzkyNw@@._V1_SX1203_SY802_.jpg
+                  
+OK: - Nutzung jquery, jquery mobile in Webansicht
+OK:    - schönere Textfelder
+OK:    - Suchfenster zusammenklappen
+OK:    - Recherche-Box beibehalten, nur Results neu laden                  
+
+OK: - bei IMDB einloggen und eigene Bewertung abfragen
+   OK: - entsprechende Anzeige in Web und Prog
+   OK: - Filterung nach gesehenen, aber noch nicht bewerteten (IMDB)Filmen
+OK: - MoviePosterLarge: Download über Programm ohne Referer...
+OK: - Schließen-Button in Details
+OK: - Tags hinterlegen und suchen  (Combobox?)
+OK:    - http://xoxco.com/projects/code/tagsinput/
+OK: - Shutdown: funktioniert das wirklich? -> in Chrome irgendwie nicht...
+OK: - Favoriten-Listen: Man kann Listen von Filmen erstellen und verwalten (z.B. Horror, Gediegen, ...)
+OK:    - inkl. Filterung
+OK:    - ggf. direkt über IMDB?
+OK: - Swipe im Detail-Fenster (nach links/rechts geht zu jeweils vorhergehenden/nachfolgenden Menüpunkt)
+OK: - Recherche nach Disk-Volume...
+OK: - Film-Suche in Bing aufnehmen (wie Google...)
+OK: - Anzeige, ob Film aktuell verfügbar ist (also FileExists...), damit man sieht, ob Festplatte angesteckt werden muss
+OK: - jquery lokal verfügbar machen (damit kein Internet benötigt)
+OK: - Recherche einklappbar (initial eingeklappt!)
+Nicht nötig: - "Daten aktualisieren" in Webansicht einbauen?
